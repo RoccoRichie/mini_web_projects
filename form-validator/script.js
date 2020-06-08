@@ -27,41 +27,27 @@ function isValidEmail(email) {
   return re.test(String(email).toLowerCase());
 }
 
+// Check required fields
+function checkRequired(inputArr) {
+  inputArr.forEach(function (input) {
+    // console.log(input.id);
+    if (input.value.trim() == '') {
+      showError(input, `${getFieldName(input)} is required`);
+    } else {
+      showSuccess(input);
+    }
+  });
+}
+
+// Get fieldname
+function getFieldName(input) {
+  return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+}
+
 // Add an Event listener
 form.addEventListener('submit', function (e) {
   // Prevent it from submitting
   e.preventDefault();
 
-  console.log('Submit clicked');
-  console.log(username.value);
-
-  // username validation
-  if (username.value === '') {
-    showError(username, 'Username is required');
-  } else {
-    // Normal we would just submit the form and have backend handle it
-    showSuccess(username);
-  }
-  // email validation
-  if (email.value === '') {
-    showError(email, 'Email is required');
-  } else if (!isValidEmail(email.value)) {
-    showError(email, 'Email is not valid');
-  } else {
-    showSuccess(email);
-  }
-
-  // password validation
-  if (password.value === '') {
-    showError(password, 'Password is required');
-  } else {
-    showSuccess(password);
-  }
-
-  // password2 validation
-  if (password2.value === '') {
-    showError(password2, 'Password2 is required');
-  } else {
-    showSuccess(password2);
-  }
+  checkRequired([username, email, password, password2]);
 });

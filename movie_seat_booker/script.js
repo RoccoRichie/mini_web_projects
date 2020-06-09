@@ -11,7 +11,7 @@ let ticketPrice = +movieSelect.value;
 // Save Selected Movie index and price
 function setMovieData(movieIndex, moviePrice) {
   localStorage.setItem('selectedMovieIndex', movieIndex);
-  localStorage.setItem('selectedMovieProce', moviePrice);
+  localStorage.setItem('selectedMoviePrice', moviePrice);
 }
 
 // Update count and total
@@ -38,6 +38,10 @@ function populateUI() {
       }
     });
   }
+  const selectedMovieIndex = localStorage.getItem('selectedMovieIndex');
+  if (selectedMovieIndex !== null) {
+    movieSelect.selectedIndex = selectedMovieIndex;
+  }
 }
 
 // Movie select event
@@ -57,3 +61,6 @@ container.addEventListener('click', (e) => {
     updateSelectedCount();
   }
 });
+
+// inital count and total set
+updateSelectedCount();

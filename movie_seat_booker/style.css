@@ -32,6 +32,12 @@ body {
   appearance: none;
 }
 
+/*  Make the screen rotate upwards - perspective*/
+.container {
+  perspective: 1000px;
+  margin: 10px 30px 30px 30px;
+}
+
 .seat {
   background-color: rgb(236, 225, 196);
   height: 12px;
@@ -103,12 +109,6 @@ body {
   margin: 15px 0;
   transform: rotateX(-45deg);
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
-}
-
-/*  Make the screen rotate upwards - perspective*/
-.screen-container {
-  perspective: 1000px;
-  margin: 10px 30px 30px 30px;
 }
 
 p.text {

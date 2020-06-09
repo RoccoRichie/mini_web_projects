@@ -33,7 +33,7 @@ body {
 }
 
 .seat {
-  background-color: #444451;
+  background-color: rgb(236, 225, 196);
   height: 12px;
   width: 15px;
   margin: 3px;
@@ -46,7 +46,7 @@ body {
 }
 
 .seat.occupied {
-  background-color: #fff;
+  background-color: #444451;
 }
 
 /* css sudo selector */
@@ -58,6 +58,63 @@ body {
   margin-left: 18px;
 }
 
+/* Hover effect - not sudo selector */
+.seat:not(.occupied):hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+/* We don't want a mouse pointer in the showcase */
+/* Hover effect - not sudo selector */
+.showcase .seat:not(.occupied):hover {
+  cursor: default;
+  transform: scale(1);
+}
+
+.showcase {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #777;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.showcase li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.showcase li small {
+  margin-left: 2px;
+}
+
 .row {
   display: flex;
+}
+
+.screen {
+  background-color: #fff;
+  height: 70px;
+  width: 100%;
+  margin: 15px 0;
+  transform: rotateX(-45deg);
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+}
+
+/*  Make the screen rotate upwards - perspective*/
+.screen-container {
+  perspective: 1000px;
+  margin: 10px 30px 30px 30px;
+}
+
+p.text {
+  margin: 5px 0;
+}
+
+p.text span {
+  color: #6feaf6;
 }
